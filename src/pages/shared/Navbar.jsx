@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FaRegUserCircle } from "react-icons/fa";
 // import { AuthContext } from "../../context/AuthProvider";
 const Navbar = () => {
-  const user = true;
+  const user = false;
   //   const { user, logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
@@ -71,7 +71,7 @@ const Navbar = () => {
           </ul>
         </div>
         <Link to="/">
-          <h2 className="text-xl lg:text-3xl font-bold lg:ml-4 ml-2 uppercase">
+          <h2 className="primary-text text-xl lg:text-3xl font-bold lg:ml-4 ml-2 uppercase">
             sporty hub
           </h2>
         </Link>
