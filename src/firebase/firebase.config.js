@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyB1t19J8T97fQzmhCc502UyRCsJ72lBb5o",
-  authDomain: "first-firebase-830c9.firebaseapp.com",
-  projectId: "first-firebase-830c9",
-  storageBucket: "first-firebase-830c9.appspot.com",
-  messagingSenderId: "531143512461",
-  appId: "1:531143512461:web:5bcc0f35ead09d18426dc4",
+  apiKey: "AIzaSyAMfNHSO38oQbqvvd6RBy3xccEoTjDozCA",
+  authDomain: "sporty-hub.firebaseapp.com",
+  projectId: "sporty-hub",
+  storageBucket: "sporty-hub.appspot.com",
+  messagingSenderId: "351781517834",
+  appId: "1:351781517834:web:fdf983cf00298731c73df3",
 };
 
 // Initialize Firebase

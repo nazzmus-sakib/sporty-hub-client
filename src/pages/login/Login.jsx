@@ -12,7 +12,6 @@ const Login = () => {
   const {
     register,
     handleSubmit,
-
     formState: { errors },
   } = useForm();
 
@@ -24,12 +23,12 @@ const Login = () => {
       .catch((err) => console.log(err));
   };
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center mt-14">
       <div className="w-1/2">
         <img src={loginImg} alt="" />
       </div>
 
-      <div className="hero-content mt-24 w-1/2">
+      <div className="hero-content w-1/2">
         <div className="card flex-shrink-0 w-full max-w-sm  border-2 bg-base-100">
           <div className="card-body">
             <h1 className="text-3xl font-bold text-center mb-2">
@@ -105,7 +104,7 @@ const Login = () => {
               New to sporty hub ?
               <Link
                 className="text-primary hover:underline underline-offset-4 "
-                to="/login"
+                to="/register"
               >
                 Sign Up
               </Link>
