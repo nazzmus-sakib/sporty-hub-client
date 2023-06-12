@@ -92,7 +92,7 @@ const Navbar = () => {
                 </div>
               </div>
             ) : (
-              <FaRegUserCircle className=" text-4xl"></FaRegUserCircle>
+              <FaRegUserCircle className=" text-4xl lg:ml-2"></FaRegUserCircle>
             )}
           </div>
         </div>
