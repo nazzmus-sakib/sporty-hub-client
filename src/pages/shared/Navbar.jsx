@@ -3,13 +3,16 @@ import { Link, NavLink } from "react-router-dom";
 
 import { FaRegUserCircle } from "react-icons/fa";
 import { AuthContext } from "../../context/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
     logOut()
-      .then()
+      .then((res) => {
+        toast.success("Successfully logout");
+      })
       .catch((err) => console.log(err));
   };
   const navItems = (

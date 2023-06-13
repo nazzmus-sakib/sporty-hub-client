@@ -6,6 +6,7 @@ import loginImg from "../../assets/login.svg";
 import GoogleLogin from "../socialLogin/GoogleLogin";
 import { AuthContext } from "../../context/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { toast } from "react-hot-toast";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { login } = useContext(AuthContext);
@@ -18,6 +19,7 @@ const Login = () => {
   const onSubmit = (data) => {
     login(data.email, data.password)
       .then((res) => {
+        toast.success("Login successful");
         navigate("/");
       })
       .catch((err) => console.log(err));
