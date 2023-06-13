@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import loginImg from "../../assets/login.svg";
 
 import GoogleLogin from "../socialLogin/GoogleLogin";
@@ -14,11 +14,11 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  const navigate = useNavigate();
   const onSubmit = (data) => {
     login(data.email, data.password)
       .then((res) => {
-        console.log(res.user);
+        navigate("/");
       })
       .catch((err) => console.log(err));
   };

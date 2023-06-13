@@ -23,20 +23,17 @@ const Register = () => {
 
   const onSubmit = (data) => {
     createUser(data.email, data.password)
-      .then((res) => console.log(res.user))
+      .then((res) => {
+        console.log(res.user);
+        updateName(res.user, data.name, data.photo).catch((err) =>
+          console.log(err)
+        );
+        toast.success("Registation successful");
+        console.log(data);
+        logOut();
+        navigate("/login");
+      })
       .catch((err) => console.log(err.message));
-    // createUser(data.email, data.password)
-    //   .then((res) => {
-    //     console.log(res.user);
-    //     // updateName(res.user, data.name, data.photo).catch((err) =>
-    //     //   console.log(err)
-    //     // );
-    //     // toast.success("Registation successful");
-    //     // console.log(data);
-    //     // logOut();
-    //     // navigate("/login");
-    //   })
-    //   .catch((err) => console.log(err.message));
   };
   return (
     <div className="flex items-center justify-center mt-14">
@@ -166,6 +163,7 @@ const Register = () => {
                 </button>
               </div>
             </form>
+            <div className="divider">OR</div>
             <GoogleLogin></GoogleLogin>
             <p className="text-center mt-5 text-sm">
               Already have an account?

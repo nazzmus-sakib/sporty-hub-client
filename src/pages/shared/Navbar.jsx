@@ -32,7 +32,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <NavLink to="/logout">Logout</NavLink>
+            <Link onClick={handleLogout}>Logout</Link>
           </li>
         </>
       ) : (
