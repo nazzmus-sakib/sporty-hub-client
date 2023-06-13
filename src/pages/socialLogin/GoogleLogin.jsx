@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from "../../context/AuthProvider";
+import { useNavigate } from "react-router-dom";
 const GoogleLogin = () => {
   const { googleLogin } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleGoogleLogin = () => {
     googleLogin()
-      .then((res) => console.log(res.user))
+      .then((res) => navigate("/"))
       .catch((err) => console.log(err));
   };
   return (

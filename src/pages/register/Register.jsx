@@ -29,7 +29,6 @@ const Register = () => {
           console.log(err)
         );
         toast.success("Registation successful");
-        console.log(data);
         logOut();
         navigate("/login");
       })
