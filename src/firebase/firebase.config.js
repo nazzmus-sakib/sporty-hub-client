@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAMfNHSO38oQbqvvd6RBy3xccEoTjDozCA",
-  authDomain: "sporty-hub.firebaseapp.com",
-  projectId: "sporty-hub",
-  storageBucket: "sporty-hub.appspot.com",
-  messagingSenderId: "351781517834",
-  appId: "1:351781517834:web:fdf983cf00298731c73df3",
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

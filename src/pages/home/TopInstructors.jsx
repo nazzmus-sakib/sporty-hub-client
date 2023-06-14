@@ -5,7 +5,7 @@ const TopInstructors = () => {
   const [instructors, setInstructors] = useState([]);
 
   useEffect(() => {
-    fetch("instructors.json")
+    fetch("https://sporty-hub-server.vercel.app/top-instructors")
       .then((res) => res.json())
       .then((data) => setInstructors(data));
   }, []);
