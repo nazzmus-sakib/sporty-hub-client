@@ -5,6 +5,7 @@ import Register from "../pages/register/Register";
 import Home from "../pages/home/Home";
 import Instructors from "../pages/instructors/Instructors";
 import Classes from "../pages/classes/Classes";
+import DashboardLayout from "../layout/DashboardLayout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:4000/classes"),
       },
     ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout></DashboardLayout>,
   },
 ]);
 
