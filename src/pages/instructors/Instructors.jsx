@@ -9,7 +9,7 @@ const Instructors = () => {
         className="text-4xl text-blue-500 font-bold my-20 text-center uppercase "
         style={{ fontFamily: "monospace" }}
       >
-        Oue All Instructors Here
+        Our All Instructors Here
       </h2>
       <div className="grid grid-cols-3 gap-8 mb-20 ">
         {instructorsData.map((instructor) => (
