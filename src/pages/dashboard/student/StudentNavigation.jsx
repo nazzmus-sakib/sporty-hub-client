@@ -12,7 +12,7 @@ const StudentNavigation = () => {
       <li>
         <NavLink
           to="/dashboard/selected-class"
-          className="flex items-center gap-2 border-s-[3px]  border-blue-500 bg-blue-50 px-4 py-3 text-blue-700"
+          className={({ isActive }) => (isActive ? "active" : "not-active")}
         >
           <img src={selectedImg} alt="" className="h-5 w-5 opacity-75 " />
 
@@ -23,7 +23,7 @@ const StudentNavigation = () => {
       <li>
         <NavLink
           to="/dashboard/enrolled-class"
-          className="flex items-center gap-2 border-s-[3px] border-transparent px-4 py-3 text-gray-500 hover:border-gray-100 hover:bg-gray-50 hover:text-gray-700"
+          className={({ isActive }) => (isActive ? "active" : "not-active")}
         >
           <img
             src={enrolledImg}
@@ -37,8 +37,8 @@ const StudentNavigation = () => {
 
       <li>
         <NavLink
-          href=""
-          className="flex items-center gap-2 border-s-[3px] border-transparent px-4 py-3 text-gray-500 hover:border-gray-100 hover:bg-gray-50 hover:text-gray-700"
+          to="/dashboard/payment-history"
+          className={({ isActive }) => (isActive ? "active" : "not-active")}
         >
           <img src={walletImg} alt="" className="h-5 w-5 opacity-60 " />
 
@@ -48,8 +48,8 @@ const StudentNavigation = () => {
 
       <li>
         <NavLink
-          href=""
-          className="flex items-center gap-2 border-s-[3px] border-transparent px-4 py-3 text-gray-500 hover:border-gray-100 hover:bg-gray-50 hover:text-gray-700"
+          to="/"
+          className={({ isActive }) => (isActive ? "active" : "not-active")}
         >
           <img src={homeImg} alt="" className="h-5 w-5 opacity-60 " />
 
@@ -59,7 +59,7 @@ const StudentNavigation = () => {
 
       <li>
         <NavLink
-          href=""
+          to="/dashboard/payment-history"
           className="flex items-center gap-2 border-s-[3px] border-transparent px-4 py-3 text-gray-500 hover:border-gray-100 hover:bg-gray-50 hover:text-gray-700"
         >
           <svg
