@@ -1,16 +1,19 @@
 import React from "react";
 import StudentNavigation from "../pages/dashboard/student/StudentNavigation";
-import { Outlet } from "react-router-dom";
-import logoImg from "../assets/logo.png";
+import { Link, Outlet } from "react-router-dom";
+
 const DashboardLayout = () => {
   return (
-    <div>
+    <div className="flex pr-20">
       <div className="flex h-screen flex-col justify-between border-e bg-white w-3/12">
         <div className="px-4 py-6">
           <span className="grid h-10 place-content-center rounded-lg mb-10">
-            <h2 className="primary-text text-xl lg:text-3xl font-bold  uppercase">
+            <Link
+              to="/"
+              className="primary-text text-xl lg:text-3xl font-bold  uppercase"
+            >
               sporty hub
-            </h2>
+            </Link>
           </span>
 
           {/* link here */}
@@ -38,7 +41,7 @@ const DashboardLayout = () => {
           </a>
         </div>
       </div>
-      <div>
+      <div className="w-full">
         <Outlet></Outlet>
       </div>
     </div>

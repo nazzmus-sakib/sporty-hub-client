@@ -6,13 +6,27 @@ const Classes = () => {
   const classData = useLoaderData();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  const hanleSelect = () => {
+  const handleSelect = (classes) => {
     if (!user) {
       navigate("/login");
     }
     // next step : TODO
-    console.log("clicked");
+    fetch("http://localhost:4000/selected-class", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        course_name: classes?.name,
+        purchase_by: user?.email,
+        price: classes?.price,
+        date: new Date(),
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
+
   return (
     <>
       <h2
@@ -54,7 +68,7 @@ const Classes = () => {
             </div>
 
             <button
-              onClick={hanleSelect}
+              onClick={() => handleSelect(classes)}
               className="bg-blue-500 px-4 py-1 mt-4 font-semibold  text-white rounded-md"
             >
               Select

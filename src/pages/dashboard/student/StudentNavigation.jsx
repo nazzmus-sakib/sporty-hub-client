@@ -11,7 +11,7 @@ const StudentNavigation = () => {
     <ul>
       <li>
         <NavLink
-          href=""
+          to="/dashboard/selected-class"
           className="flex items-center gap-2 border-s-[3px]  border-blue-500 bg-blue-50 px-4 py-3 text-blue-700"
         >
           <img src={selectedImg} alt="" className="h-5 w-5 opacity-75 " />
@@ -22,7 +22,7 @@ const StudentNavigation = () => {
 
       <li>
         <NavLink
-          href=""
+          to="/dashboard/enrolled-class"
           className="flex items-center gap-2 border-s-[3px] border-transparent px-4 py-3 text-gray-500 hover:border-gray-100 hover:bg-gray-50 hover:text-gray-700"
         >
           <img
