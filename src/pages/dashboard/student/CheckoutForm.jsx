@@ -68,6 +68,7 @@ const CheckoutForm = ({ price, id, course_name, course_image, classId }) => {
         email: user?.email,
         transactionId: paymentIntent.id,
         price,
+        date: new Date(),
         order_date: moment().format("dddd, MMMM D, YYYY"),
         selectedId: id,
       };
