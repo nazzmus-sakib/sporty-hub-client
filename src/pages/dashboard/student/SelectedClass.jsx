@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
-import moment from "moment/moment";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
@@ -69,6 +68,13 @@ const SelectedClass = () => {
                   Delete
                 </button>
                 <Link
+                  state={{
+                    price: classes.price,
+                    id: classes._id,
+                    course_name: classes.course_name,
+                    course_image: classes?.image,
+                    classId: classes?.classId,
+                  }}
                   to="/dashboard/payment"
                   className="px-4 py-2 font-medium bg-green-50 hover:bg-green-100 hover:text-green-500 text-green-600 rounded-lg text-sm"
                 >

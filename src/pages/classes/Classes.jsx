@@ -11,7 +11,7 @@ const Classes = () => {
     if (!user) {
       navigate("/login");
     }
-    // next step : TODO
+
     fetch("http://localhost:4000/selected-class", {
       method: "POST",
       headers: {
@@ -21,7 +21,9 @@ const Classes = () => {
         course_name: classes?.name,
         purchase_by: user?.email,
         price: classes?.price,
+        image: classes?.image,
         date: new Date(),
+        classId: classes._id,
       }),
     })
       .then((res) => res.json())
@@ -48,7 +50,7 @@ const Classes = () => {
       </h2>
       <div className="grid grid-cols-3 gap-8 mb-20">
         {classData.map((classes) => (
-          <div className="normal-shadow p-4 rounded-md">
+          <div key={classes._id} className="normal-shadow p-4 rounded-md">
             <div className="w-full text-center">
               <img
                 src={classes?.image}
@@ -65,9 +67,11 @@ const Classes = () => {
               </p>
               <div className="flex justify-between mt-4">
                 <p className="font-bold">
-                  Total Student{" "}
+                  Available Seats{" "}
                   <span className="text-blue-500">
-                    {classes.available_seats}
+                    {classes.available_seats < 10
+                      ? `0${classes.available_seats}`
+                      : classes.available_seats}
                   </span>
                 </p>
                 <div className="flex items-center gap-2">
