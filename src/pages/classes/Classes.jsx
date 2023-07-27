@@ -50,7 +50,12 @@ const Classes = () => {
       </h2>
       <div className="grid grid-cols-3 gap-8 mb-20">
         {classData.map((classes) => (
-          <div key={classes._id} className="normal-shadow p-4 rounded-md">
+          <div
+            key={classes._id}
+            className={`normal-shadow p-4 rounded-md ${
+              classes.available_seats <= 0 ? "bg-red-200" : ""
+            }`}
+          >
             <div className="w-full text-center">
               <img
                 src={classes?.image}
@@ -83,6 +88,7 @@ const Classes = () => {
             </div>
 
             <button
+              disabled={classes.available_seats <= 0}
               onClick={() => handleSelect(classes)}
               className="bg-blue-500 px-4 py-1 mt-4 font-semibold  text-white rounded-md"
             >
