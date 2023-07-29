@@ -94,7 +94,18 @@ const CheckoutForm = ({ price, id, course_name, course_image, classId }) => {
                     method: "PATCH",
                   })
                     .then((res) => res.json())
-                    .then((data) => console.log(data));
+                    .then((data) => {
+                      if (data.modifiedCount > 0) {
+                        fetch(
+                          `http://localhost:4000/update-enroll-number/${classId}`,
+                          {
+                            method: "PATCH",
+                          }
+                        )
+                          .then((res) => res.json())
+                          .then((data) => console.log(data));
+                      }
+                    });
                 }
               });
           }

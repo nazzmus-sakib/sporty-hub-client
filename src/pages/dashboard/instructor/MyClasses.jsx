@@ -30,7 +30,9 @@ const MyClasses = () => {
             <tr key={classes._id}>
               <th>{index + 1}</th>
               <td>{classes.name}</td>
-              <td> 0</td>
+              <td className="pl-10 ">
+                {classes?.total_enroll ? classes.total_enroll : 0}
+              </td>
               <td>No Feedback Available</td>
               <td>
                 {classes?.status && classes.status === "pending" ? (

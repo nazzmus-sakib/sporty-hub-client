@@ -37,6 +37,7 @@ const AddClass = () => {
             available_seats: seat,
             image: imageUrl,
             status: "pending",
+            total_enroll: 0,
           };
           fetch("http://localhost:4000/classes", {
             method: "POST",
