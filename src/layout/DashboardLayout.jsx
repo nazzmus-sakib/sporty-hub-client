@@ -1,8 +1,12 @@
-import React from "react";
 import StudentNavigation from "../pages/dashboard/student/StudentNavigation";
 import { Link, Outlet } from "react-router-dom";
 
+import InstructorNavigation from "../pages/dashboard/instructor/InstructorNavigation";
+import useInscructor from "../hooks/useInscructor";
+
 const DashboardLayout = () => {
+  const [isInstructor, loading] = useInscructor();
+  console.log(isInstructor);
   return (
     <div className="flex pr-20">
       <div className="flex h-screen flex-col justify-between border-e bg-white w-3/12">
@@ -16,8 +20,11 @@ const DashboardLayout = () => {
             </Link>
           </span>
 
-          {/* link here */}
-          <StudentNavigation></StudentNavigation>
+          {isInstructor === "instructor" ? (
+            <InstructorNavigation></InstructorNavigation>
+          ) : (
+            <StudentNavigation></StudentNavigation>
+          )}
         </div>
 
         <div className="sticky inset-x-0 bottom-0 border-t border-gray-100">

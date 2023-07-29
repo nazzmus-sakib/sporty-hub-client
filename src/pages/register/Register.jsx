@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 import registerImg from "../../assets/register.svg";
 import { AuthContext } from "../../context/AuthProvider";
 import GoogleLogin from "../socialLogin/GoogleLogin";
+import axios from "axios";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -24,10 +25,19 @@ const Register = () => {
   const onSubmit = (data) => {
     createUser(data.email, data.password)
       .then((res) => {
-        console.log(res.user);
-        updateName(res.user, data.name, data.photo).catch((err) =>
-          console.log(err)
-        );
+        updateName(res.user, data.name, data.photo)
+          .then(() => {
+            // save user to db
+            axios
+              .post("http://localhost:4000/users", {
+                name: res?.user?.displayName,
+                email: res?.user?.email,
+                role: "user",
+              })
+              .then((response) => console.log(response.data));
+          })
+          .catch((err) => console.log(err));
+
         toast.success("Registation successful");
         logOut();
         navigate("/login");
