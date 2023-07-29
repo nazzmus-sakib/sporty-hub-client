@@ -32,7 +32,7 @@ const Register = () => {
               .post("http://localhost:4000/users", {
                 name: res?.user?.displayName,
                 email: res?.user?.email,
-                role: "user",
+                role: "student",
               })
               .then((response) => console.log(response.data));
           })

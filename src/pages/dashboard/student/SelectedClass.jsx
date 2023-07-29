@@ -3,6 +3,7 @@ import { AuthContext } from "../../../context/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import EmptyPage from "../../shared/EmptyPage";
 
 const SelectedClass = () => {
   const { user } = useContext(AuthContext);
@@ -41,51 +42,57 @@ const SelectedClass = () => {
   };
 
   return (
-    <div className="overflow-x-auto mt-5">
-      <table className="table">
-        {/* head */}
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Course Name</th>
-            <th>Added By</th>
-            <th>Price</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data?.map((classes, index) => (
-            <tr key={classes._id}>
-              <th>{index + 1}</th>
-              <td>{classes.course_name}</td>
-              <td> {classes.purchase_by}</td>
-              <td>{classes.price}</td>
-              <td>
-                <button
-                  onClick={() => handleDelete(classes._id)}
-                  className="px-4 py-2 font-medium mr-2 bg-red-50 hover:bg-red-100 hover:text-red-500 text-red-600 rounded-lg text-sm"
-                >
-                  Delete
-                </button>
-                <Link
-                  state={{
-                    price: classes.price,
-                    id: classes._id,
-                    course_name: classes.course_name,
-                    course_image: classes?.image,
-                    classId: classes?.classId,
-                  }}
-                  to="/dashboard/payment"
-                  className="px-4 py-2 font-medium bg-green-50 hover:bg-green-100 hover:text-green-500 text-green-600 rounded-lg text-sm"
-                >
-                  Pay
-                </Link>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <>
+      {data.length > 0 ? (
+        <div className="overflow-x-auto mt-5">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Course Name</th>
+                <th>Added By</th>
+                <th>Price</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data?.map((classes, index) => (
+                <tr key={classes._id}>
+                  <th>{index + 1}</th>
+                  <td>{classes.course_name}</td>
+                  <td> {classes.purchase_by}</td>
+                  <td>{classes.price}</td>
+                  <td>
+                    <button
+                      onClick={() => handleDelete(classes._id)}
+                      className="px-4 py-2 font-medium mr-2 bg-red-50 hover:bg-red-100 hover:text-red-500 text-red-600 rounded-lg text-sm"
+                    >
+                      Delete
+                    </button>
+                    <Link
+                      state={{
+                        price: classes.price,
+                        id: classes._id,
+                        course_name: classes.course_name,
+                        course_image: classes?.image,
+                        classId: classes?.classId,
+                      }}
+                      to="/dashboard/payment"
+                      className="px-4 py-2 font-medium bg-green-50 hover:bg-green-100 hover:text-green-500 text-green-600 rounded-lg text-sm"
+                    >
+                      Pay
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <EmptyPage text={"you have not selected any class"}></EmptyPage>
+      )}
+    </>
   );
 };
 

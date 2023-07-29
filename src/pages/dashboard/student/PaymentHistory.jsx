@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
 
 import { AuthContext } from "../../../context/AuthProvider";
+import EmptyPage from "../../shared/EmptyPage";
 
 const PaymentHistory = () => {
   const { user } = useContext(AuthContext);
@@ -14,35 +15,41 @@ const PaymentHistory = () => {
     },
   });
   return (
-    <div>
-      <div className="overflow-x-auto mt-5">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Course Name</th>
-              <th>Purchase By</th>
-              <th>Order Date</th>
-              <th>Price</th>
-              <th>transactionId</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data?.map((payment, index) => (
-              <tr key={payment._id}>
-                <th>{index + 1}</th>
-                <td>{payment.course_name}</td>
-                <td> {payment.email}</td>
-                <td>{payment.order_date}</td>
-                <td>${payment.price}</td>
-                <td>{payment.transactionId}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <>
+      {data.lenhth > 0 ? (
+        <div>
+          <div className="overflow-x-auto mt-5">
+            <table className="table">
+              {/* head */}
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Course Name</th>
+                  <th>Purchase By</th>
+                  <th>Order Date</th>
+                  <th>Price</th>
+                  <th>transactionId</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data?.map((payment, index) => (
+                  <tr key={payment._id}>
+                    <th>{index + 1}</th>
+                    <td>{payment.course_name}</td>
+                    <td> {payment.email}</td>
+                    <td>{payment.order_date}</td>
+                    <td>${payment.price}</td>
+                    <td>{payment.transactionId}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ) : (
+        <EmptyPage text={"There is no payment history"}></EmptyPage>
+      )}
+    </>
   );
 };
 
