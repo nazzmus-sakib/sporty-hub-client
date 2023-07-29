@@ -18,7 +18,7 @@ const InstructorNavigation = () => {
 
       <li>
         <NavLink
-          to="/dashboard/my-class"
+          to="/dashboard/my-classes"
           className={({ isActive }) => (isActive ? "active" : "not-active")}
         >
           <img

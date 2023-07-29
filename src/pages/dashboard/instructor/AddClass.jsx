@@ -36,6 +36,7 @@ const AddClass = () => {
             price,
             available_seats: seat,
             image: imageUrl,
+            status: "pending",
           };
           fetch("http://localhost:4000/classes", {
             method: "POST",
