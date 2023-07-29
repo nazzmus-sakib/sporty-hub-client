@@ -3,9 +3,12 @@ import { Link, Outlet } from "react-router-dom";
 
 import InstructorNavigation from "../pages/dashboard/instructor/InstructorNavigation";
 import useInscructor from "../hooks/useInscructor";
+import useAdmin from "../hooks/useAdmin";
+import AdminNavigation from "../pages/dashboard/admin/AdminNavigation";
 
 const DashboardLayout = () => {
   const [isInstructor, loading] = useInscructor();
+  const [isAdmin] = useAdmin();
   console.log(isInstructor);
   return (
     <div className="flex pr-20">
@@ -22,6 +25,8 @@ const DashboardLayout = () => {
 
           {isInstructor === "instructor" ? (
             <InstructorNavigation></InstructorNavigation>
+          ) : isAdmin === "admin" ? (
+            <AdminNavigation></AdminNavigation>
           ) : (
             <StudentNavigation></StudentNavigation>
           )}

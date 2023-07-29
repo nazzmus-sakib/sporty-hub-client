@@ -5,10 +5,12 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-hot-toast";
 import useInscructor from "../../hooks/useInscructor";
+import useAdmin from "../../hooks/useAdmin";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isInstructor] = useInscructor();
+  const [isAdmin] = useAdmin();
   const handleLogout = () => {
     logOut()
       .then((res) => {
@@ -34,7 +36,11 @@ const Navbar = () => {
           <li>
             <NavLink
               to={`/dashboard/${
-                isInstructor === "instructor" ? "add-class" : "selected-class"
+                isInstructor === "instructor"
+                  ? "add-class"
+                  : isAdmin === "admin"
+                  ? "manage-classes"
+                  : "selected-class"
               }`}
             >
               Dashboard

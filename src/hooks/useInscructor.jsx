@@ -15,7 +15,6 @@ const useInscructor = () => {
       });
   }, [user]);
 
-  console.log(isInstructor);
   return [isInstructor, loading];
 };
 
