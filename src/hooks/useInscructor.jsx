@@ -7,7 +7,7 @@ const useInscructor = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/instructor/${user?.email}`)
+    fetch(`https://sporty-hub-server.vercel.app/instructor/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setIsInstructor(data?.role);

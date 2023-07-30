@@ -12,7 +12,7 @@ const CheckoutForm = ({ price, id, course_name, course_image, classId }) => {
   const [transactionId, setTransactionId] = useState("");
   const [clientSecret, setClientSecret] = useState(null);
   useEffect(() => {
-    fetch("http://localhost:4000/create-payment-intent ", {
+    fetch("https://sporty-hub-server.vercel.app/create-payment-intent ", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -73,7 +73,7 @@ const CheckoutForm = ({ price, id, course_name, course_image, classId }) => {
         selectedId: id,
       };
       // save payment info to db
-      fetch("http://localhost:4000/payments", {
+      fetch("https://sporty-hub-server.vercel.app/payments", {
         method: "POST",
         headers: {
           "content-type": "application/json",
@@ -84,20 +84,26 @@ const CheckoutForm = ({ price, id, course_name, course_image, classId }) => {
         .then((deta) => {
           if (deta.insertedId) {
             // delete selected class after successful payment
-            fetch(`http://localhost:4000/delete-selected-class/${id}`, {
-              method: "DELETE",
-            })
+            fetch(
+              `https://sporty-hub-server.vercel.app/delete-selected-class/${id}`,
+              {
+                method: "DELETE",
+              }
+            )
               .then((res) => res.json())
               .then((data) => {
                 if (data.deletedCount > 0) {
-                  fetch(`http://localhost:4000/update-seats/${classId}`, {
-                    method: "PATCH",
-                  })
+                  fetch(
+                    `https://sporty-hub-server.vercel.app/update-seats/${classId}`,
+                    {
+                      method: "PATCH",
+                    }
+                  )
                     .then((res) => res.json())
                     .then((data) => {
                       if (data.modifiedCount > 0) {
                         fetch(
-                          `http://localhost:4000/update-enroll-number/${classId}`,
+                          `https://sporty-hub-server.vercel.app/update-enroll-number/${classId}`,
                           {
                             method: "PATCH",
                           }

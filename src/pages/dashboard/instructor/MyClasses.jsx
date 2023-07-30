@@ -11,8 +11,8 @@ const MyClasses = () => {
   const { data } = useQuery({
     queryKey: ["my-class", user],
     queryFn: () =>
-      fetch(`http://localhost:4000/classes/${user?.email}`).then((res) =>
-        res.json()
+      fetch(`https://sporty-hub-server.vercel.app/classes/${user?.email}`).then(
+        (res) => res.json()
       ),
   });
   return (

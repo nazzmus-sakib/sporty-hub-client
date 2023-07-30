@@ -10,9 +10,9 @@ const SelectedClass = () => {
   const { data, refetch } = useQuery({
     queryKey: ["selected_class", user],
     queryFn: () => {
-      return fetch(`http://localhost:4000/selected-class/${user?.email}`).then(
-        (res) => res.json()
-      );
+      return fetch(
+        `https://sporty-hub-server.vercel.app/selected-class/${user?.email}`
+      ).then((res) => res.json());
     },
   });
 
@@ -27,7 +27,7 @@ const SelectedClass = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:4000/selected-class/${id}`, {
+        fetch(`https://sporty-hub-server.vercel.app/selected-class/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

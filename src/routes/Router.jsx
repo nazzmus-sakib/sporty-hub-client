@@ -38,12 +38,12 @@ const router = createBrowserRouter([
       {
         path: "/instructors",
         element: <Instructors></Instructors>,
-        loader: () => fetch("http://localhost:4000/instructors"),
+        loader: () => fetch("https://sporty-hub-server.vercel.app/instructors"),
       },
       {
         path: "/classes",
         element: <Classes></Classes>,
-        loader: () => fetch("http://localhost:4000/classes"),
+        loader: () => fetch("https://sporty-hub-server.vercel.app/classes"),
       },
     ],
   },

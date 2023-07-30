@@ -10,11 +10,13 @@ const ManageClasses = () => {
   const { data, refetch } = useQuery({
     queryKey: ["manage-class", user],
     queryFn: () =>
-      fetch(`http://localhost:4000/classes`).then((res) => res.json()),
+      fetch(`https://sporty-hub-server.vercel.app/classes`).then((res) =>
+        res.json()
+      ),
   });
 
   const handleApprove = (id) => {
-    fetch(`http://localhost:4000/update-status-approved/${id}`, {
+    fetch(`https://sporty-hub-server.vercel.app/update-status-approved/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -32,7 +34,7 @@ const ManageClasses = () => {
       });
   };
   const handleDeny = (id) => {
-    fetch(`http://localhost:4000/update-status-deny/${id}`, {
+    fetch(`https://sporty-hub-server.vercel.app/update-status-deny/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())

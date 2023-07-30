@@ -25,7 +25,7 @@ const Classes = () => {
       return;
     }
 
-    fetch("http://localhost:4000/selected-class", {
+    fetch("https://sporty-hub-server.vercel.app/selected-class", {
       method: "POST",
       headers: {
         "content-type": "application/json",

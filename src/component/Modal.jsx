@@ -10,7 +10,7 @@ const Modal = () => {
   const handleFeedback = () => {
     const feedback = feedbackRef.current.value;
 
-    fetch(`http://localhost:4000/update-feedback/${id}`, {
+    fetch(`https://sporty-hub-server.vercel.app/update-feedback/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

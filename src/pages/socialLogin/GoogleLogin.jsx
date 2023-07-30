@@ -11,11 +11,14 @@ const GoogleLogin = () => {
       .then((res) => {
         console.log(res.user);
         axios
-          .post(`http://localhost:4000/users?email=${res?.user?.email}`, {
-            name: res?.user?.displayName,
-            email: res?.user?.email,
-            role: "user",
-          })
+          .post(
+            `https://sporty-hub-server.vercel.app/users?email=${res?.user?.email}`,
+            {
+              name: res?.user?.displayName,
+              email: res?.user?.email,
+              role: "user",
+            }
+          )
           .then((response) => console.log(response.data));
         navigate("/");
       })

@@ -9,9 +9,9 @@ const PaymentHistory = () => {
   const { data } = useQuery({
     queryKey: ["selected_class", user],
     queryFn: () => {
-      return fetch(`http://localhost:4000/payment/${user?.email}`).then((res) =>
-        res.json()
-      );
+      return fetch(
+        `https://sporty-hub-server.vercel.app/payment/${user?.email}`
+      ).then((res) => res.json());
     },
   });
   return (

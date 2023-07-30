@@ -29,7 +29,7 @@ const Register = () => {
           .then(() => {
             // save user to db
             axios
-              .post("http://localhost:4000/users", {
+              .post("https://sporty-hub-server.vercel.app/users", {
                 name: res?.user?.displayName,
                 email: res?.user?.email,
                 role: "student",

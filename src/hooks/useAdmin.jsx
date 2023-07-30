@@ -7,7 +7,7 @@ const useAdmin = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/admin/${user?.email}`)
+    fetch(`https://sporty-hub-server.vercel.app/admin/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setIsAdmin(data?.role);

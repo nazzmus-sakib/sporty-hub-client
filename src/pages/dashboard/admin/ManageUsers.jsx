@@ -10,10 +10,12 @@ const ManageUsers = () => {
   const { data, refetch } = useQuery({
     queryKey: ["manage-class", user],
     queryFn: () =>
-      fetch(`http://localhost:4000/users`).then((res) => res.json()),
+      fetch(`https://sporty-hub-server.vercel.app/users`).then((res) =>
+        res.json()
+      ),
   });
   const handleInstructor = (id) => {
-    fetch(`http://localhost:4000/update-role-instructor/${id}`, {
+    fetch(`https://sporty-hub-server.vercel.app/update-role-instructor/${id}`, {
       method: "PATCH",
     })
       .then((res) => res.json())
@@ -31,7 +33,9 @@ const ManageUsers = () => {
       });
   };
   const handleAdmin = (id) => {
-    fetch(`http://localhost:4000/update-role-admin/${id}`, { method: "PATCH" })
+    fetch(`https://sporty-hub-server.vercel.app/update-role-admin/${id}`, {
+      method: "PATCH",
+    })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

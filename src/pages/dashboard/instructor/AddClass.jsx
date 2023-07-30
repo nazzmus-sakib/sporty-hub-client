@@ -39,7 +39,7 @@ const AddClass = () => {
             status: "pending",
             total_enroll: 0,
           };
-          fetch("http://localhost:4000/classes", {
+          fetch("https://sporty-hub-server.vercel.app/classes", {
             method: "POST",
             headers: {
               "content-type": "application/json",
