@@ -10,7 +10,7 @@ const useInscructor = () => {
     fetch(`http://localhost:4000/instructor/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        setIsInstructor(data.role);
+        setIsInstructor(data?.role);
         setLoading(false);
       });
   }, [user]);

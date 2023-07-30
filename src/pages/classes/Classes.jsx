@@ -2,11 +2,16 @@ import React, { useContext } from "react";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider";
 import Swal from "sweetalert2";
+import useAdmin from "../../hooks/useAdmin";
+import useInscructor from "../../hooks/useInscructor";
 
 const Classes = () => {
   const classData = useLoaderData();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [isAdmin] = useAdmin();
+  const [isInstructor] = useInscructor();
+
   const handleSelect = (classes) => {
     if (!user) {
       Swal.fire({
@@ -96,7 +101,11 @@ const Classes = () => {
             </div>
 
             <button
-              disabled={classes.available_seats <= 0}
+              disabled={
+                classes.available_seats <= 0 ||
+                isAdmin === "admin" ||
+                isInstructor === "instructor"
+              }
               onClick={() => handleSelect(classes)}
               className="bg-blue-500 px-4 py-1 mt-4 font-semibold  text-white rounded-md"
             >

@@ -16,7 +16,7 @@ const PaymentHistory = () => {
   });
   return (
     <>
-      {data.lenhth > 0 ? (
+      {data?.length > 0 ? (
         <div>
           <div className="overflow-x-auto mt-5">
             <table className="table">

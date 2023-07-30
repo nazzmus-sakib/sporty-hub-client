@@ -10,7 +10,7 @@ const useAdmin = () => {
     fetch(`http://localhost:4000/admin/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        setIsAdmin(data.role);
+        setIsAdmin(data?.role);
         setLoading(false);
       });
   }, [user]);

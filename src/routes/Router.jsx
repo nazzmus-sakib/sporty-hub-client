@@ -16,6 +16,8 @@ import ManageClasses from "../pages/dashboard/admin/ManageClasses";
 import ManageUsers from "../pages/dashboard/admin/ManageUsers";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/shared/ErrorPage";
+import InstructorRoute from "./InstructorRoute";
+import AdminRoute from "./AdminRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -71,19 +73,37 @@ const router = createBrowserRouter([
       },
       {
         path: "add-class",
-        element: <AddClass></AddClass>,
+        element: (
+          <InstructorRoute>
+            <AddClass></AddClass>
+          </InstructorRoute>
+        ),
       },
       {
         path: "my-classes",
-        element: <MyClasses></MyClasses>,
+        element: (
+          <InstructorRoute>
+            {" "}
+            <MyClasses></MyClasses>
+          </InstructorRoute>
+        ),
       },
       {
         path: "manage-classes",
-        element: <ManageClasses></ManageClasses>,
+        element: (
+          <AdminRoute>
+            {" "}
+            <ManageClasses></ManageClasses>
+          </AdminRoute>
+        ),
       },
       {
         path: "manage-users",
-        element: <ManageUsers></ManageUsers>,
+        element: (
+          <AdminRoute>
+            <ManageUsers></ManageUsers>
+          </AdminRoute>
+        ),
       },
     ],
   },

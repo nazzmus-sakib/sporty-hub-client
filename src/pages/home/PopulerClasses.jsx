@@ -20,8 +20,8 @@ const PopulerClasses = () => {
         Our populer classes
       </h2>
       <div className="grid grid-cols-3 gap-10 my-10">
-        {classes.map((single_class) => (
-          <div className="normal-shadow p-4">
+        {classes.map((single_class, index) => (
+          <div key={index} className="normal-shadow p-4">
             <div>
               <img
                 src={single_class?.img}

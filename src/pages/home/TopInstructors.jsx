@@ -21,8 +21,8 @@ const TopInstructors = () => {
         Meet our Instructors
       </h2>
       <div className="grid grid-cols-2 gap-10 mb-20">
-        {instructors.map((instructor) => (
-          <>
+        {instructors?.map((instructor, index) => (
+          <div key={index}>
             <div
               className="flex normal-shadow pl-5 sticky top-5 z-20 bg-white"
               data-aos="fade-down"
@@ -45,7 +45,7 @@ const TopInstructors = () => {
                 />
               </div>
             </div>
-          </>
+          </div>
         ))}
       </div>
     </div>
