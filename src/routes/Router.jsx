@@ -15,6 +15,7 @@ import MyClasses from "../pages/dashboard/instructor/MyClasses";
 import ManageClasses from "../pages/dashboard/admin/ManageClasses";
 import ManageUsers from "../pages/dashboard/admin/ManageUsers";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../pages/shared/ErrorPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
         element: <ManageUsers></ManageUsers>,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <ErrorPage></ErrorPage>,
   },
 ]);
 
