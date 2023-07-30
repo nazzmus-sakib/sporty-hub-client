@@ -2,7 +2,7 @@ import { BiLoaderCircle } from "react-icons/bi";
 import { Navigate } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 
-const AdminRoute = () => {
+const AdminRoute = ({ children }) => {
   const [isAdmin, loading] = useAdmin();
   if (loading) {
     return (
