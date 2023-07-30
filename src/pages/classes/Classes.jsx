@@ -9,7 +9,15 @@ const Classes = () => {
   const navigate = useNavigate();
   const handleSelect = (classes) => {
     if (!user) {
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "You Need to Login First",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       navigate("/login");
+      return;
     }
 
     fetch("http://localhost:4000/selected-class", {

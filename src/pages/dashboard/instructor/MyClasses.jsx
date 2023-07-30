@@ -2,7 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider";
 import pendingImg from "../../../assets/pending.png";
+import approveImg from "../../../assets/approve.png";
+import deniedImg from "../../../assets/denied.png";
 import EmptyPage from "../../shared/EmptyPage";
+
 const MyClasses = () => {
   const { user } = useContext(AuthContext);
   const { data } = useQuery({
@@ -14,7 +17,7 @@ const MyClasses = () => {
   });
   return (
     <>
-      {data.length > 0 ? (
+      {data?.length > 0 ? (
         <div className="overflow-x-auto mt-5">
           <table className="table">
             {/* head */}
@@ -36,15 +39,27 @@ const MyClasses = () => {
                   <td className="pl-10 ">
                     {classes?.total_enroll ? classes.total_enroll : 0}
                   </td>
-                  <td>No Feedback Available</td>
+                  <td>
+                    {classes?.feedback
+                      ? classes?.feedback
+                      : "No Feedback Available"}
+                  </td>
                   <td>
                     {classes?.status && classes.status === "pending" ? (
                       <p className="flex items-center  gap-1">
                         <img src={pendingImg} height={20} width={20} />{" "}
                         <span>{classes.status}</span>
                       </p>
+                    ) : classes?.status === "approved" ? (
+                      <p className="flex items-center  gap-1">
+                        <img src={approveImg} height={20} width={20} />{" "}
+                        <span>{classes.status}</span>
+                      </p>
                     ) : (
-                      ""
+                      <p className="flex items-center  gap-1">
+                        <img src={deniedImg} height={20} width={20} />{" "}
+                        <span>{classes.status}</span>
+                      </p>
                     )}{" "}
                   </td>
                   <td>

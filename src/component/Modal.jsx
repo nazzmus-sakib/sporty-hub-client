@@ -23,7 +23,7 @@ const Modal = () => {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "Feedback has been added",
+            title: "Feedback has been given",
             showConfirmButton: false,
             timer: 1500,
           });
