@@ -15,12 +15,12 @@ const TopInstructors = () => {
   return (
     <div>
       <h2
-        className="text-4xl text-blue-500 font-bold my-20 text-center uppercase "
+        className="px-2 md:px-0 text-4xl text-blue-500 font-bold my-20 text-center uppercase "
         style={{ fontFamily: "monospace" }}
       >
         Meet our Instructors
       </h2>
-      <div className="grid grid-cols-2 gap-10 mb-20">
+      <div className="px-5 md:px-5 grid md:grid-cols-2 grid-cols-1 md:gap-10 gap-7 mb-20">
         {instructors?.map((instructor, index) => (
           <div key={index}>
             <div

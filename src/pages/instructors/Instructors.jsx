@@ -6,12 +6,12 @@ const Instructors = () => {
   return (
     <>
       <h2
-        className="text-4xl text-blue-500 font-bold my-20 text-center uppercase "
+        className="px-2 md:mx-0 text-4xl text-blue-500 font-bold my-20 text-center uppercase "
         style={{ fontFamily: "monospace" }}
       >
         Our All Instructors Here
       </h2>
-      <div className="grid grid-cols-3 gap-8 mb-20 ">
+      <div className="grid px-5 md:px-0 col-span-1 md:grid-cols-3 gap-8 mb-20 ">
         {instructorsData.map((instructor) => (
           <div className="flex normal-shadow pl-5  bg-white rounded">
             <div className="w-3/5">

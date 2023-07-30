@@ -1,38 +1,40 @@
 import StudentNavigation from "../pages/dashboard/student/StudentNavigation";
 import { Link, Outlet } from "react-router-dom";
-
 import InstructorNavigation from "../pages/dashboard/instructor/InstructorNavigation";
 import useInscructor from "../hooks/useInscructor";
 import useAdmin from "../hooks/useAdmin";
 import AdminNavigation from "../pages/dashboard/admin/AdminNavigation";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthProvider";
 
 const DashboardLayout = () => {
   const [isInstructor, loading] = useInscructor();
   const [isAdmin] = useAdmin();
-  console.log(isInstructor);
+  const { user } = useContext(AuthContext);
+
   return (
-    <div className="flex pr-20">
-      <div className="flex h-screen flex-col justify-between border-e bg-white w-3/12">
-        <div className="px-4 py-6">
+    <div className="flex flex-col lg:flex-row lg:pr-20 h-screen">
+      <div className="flex lg:flex-col border-e bg-white lg:h-full w-full lg:w-3/12">
+        <div className="px-4 py-6 lg:flex-grow">
           <span className="grid h-10 place-content-center rounded-lg mb-10">
             <Link
               to="/"
-              className="primary-text text-xl lg:text-3xl font-bold  uppercase"
+              className="primary-text text-xl lg:text-3xl font-bold uppercase"
             >
               sporty hub
             </Link>
           </span>
 
           {isInstructor === "instructor" ? (
-            <InstructorNavigation></InstructorNavigation>
+            <InstructorNavigation />
           ) : isAdmin === "admin" ? (
-            <AdminNavigation></AdminNavigation>
+            <AdminNavigation />
           ) : (
-            <StudentNavigation></StudentNavigation>
+            <StudentNavigation />
           )}
         </div>
 
-        <div className="sticky inset-x-0 bottom-0 border-t border-gray-100">
+        <div className="lg:sticky lg:inset-x-0 lg:bottom-0 border-t border-gray-100">
           <a
             href="#"
             className="flex items-center gap-2 bg-white p-4 hover:bg-gray-50"
@@ -45,16 +47,19 @@ const DashboardLayout = () => {
 
             <div>
               <p className="text-xs">
-                <strong className="block font-medium">Eric Frusciante</strong>
+                <strong className="block font-medium">
+                  {user?.displayName}
+                </strong>
 
-                <span> eric@frusciante.com </span>
+                <span>{user?.email} </span>
               </p>
             </div>
           </a>
         </div>
       </div>
-      <div className="w-full">
-        <Outlet></Outlet>
+
+      <div className="lg:w-full">
+        <Outlet />
       </div>
     </div>
   );

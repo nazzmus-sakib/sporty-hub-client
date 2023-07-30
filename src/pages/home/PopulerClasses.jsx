@@ -14,19 +14,19 @@ const PopulerClasses = () => {
   return (
     <>
       <h2
-        className="text-4xl text-blue-500 font-bold mt-20 text-center uppercase "
+        className="px-2 md:px-0 text-4xl text-blue-500 font-bold mt-20 text-center uppercase "
         style={{ fontFamily: "monospace" }}
       >
         Our populer classes
       </h2>
-      <div className="grid grid-cols-3 gap-10 my-10">
+      <div className=" px-5 md:px-0 grid md:grid-cols-3 col-span-1 md:gap-10 gap-5 my-10">
         {classes.map((single_class, index) => (
           <div key={index} className="normal-shadow p-4">
             <div>
               <img
                 src={single_class?.img}
                 alt=""
-                className="rounded h-[250px]"
+                className="rounded h-[250px] w-full"
               />
             </div>
             <div>

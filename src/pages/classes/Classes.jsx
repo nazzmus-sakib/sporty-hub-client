@@ -56,12 +56,12 @@ const Classes = () => {
   return (
     <>
       <h2
-        className="text-4xl text-blue-500 font-bold my-20 text-center uppercase "
+        className="px-2 md:px-0 text-4xl text-blue-500 font-bold my-20 text-center uppercase "
         style={{ fontFamily: "monospace" }}
       >
         Our All Classes Here
       </h2>
-      <div className="grid grid-cols-3 gap-8 mb-20">
+      <div className="px-5 md:px-0 grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
         {classData.map((classes) => (
           <div
             key={classes._id}
