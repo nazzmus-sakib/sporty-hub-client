@@ -5,6 +5,8 @@
 - Here you can enroll sports related course as a student
 - Also can create course as a instructor
 - It has also Admin panel
+- Admin Email : robin3454@gmail.com
+- Password : Robin12#
 - It is a mern project (MERN STACK)
 - Responsive website and beautiful animation in the website
 - You can sign up,login in website.Authenticate with firebase. So browse and enjoy 😍
